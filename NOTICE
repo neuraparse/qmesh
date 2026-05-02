@@ -1,0 +1,65 @@
+qmesh
+Copyright 2026 Neuraparse (https://neuraparse.com)
+
+This product includes software developed by Neuraparse and the qmesh
+contributors. It is licensed under the Apache License, Version 2.0 (see
+LICENSE).
+
+------------------------------------------------------------------------
+Third-party software
+------------------------------------------------------------------------
+
+qmesh is designed to compose with the broader 2026 quantum software
+ecosystem. The following projects are *optional* runtime dependencies; their
+licenses apply only when the user chooses to install and load them.
+
+  * Qiskit / Qiskit Aer .................................. Apache-2.0
+      (IBM Quantum, https://github.com/Qiskit)
+  * Cirq ................................................. Apache-2.0
+      (Google Quantum AI, https://github.com/quantumlib/Cirq)
+  * PennyLane ............................................ Apache-2.0
+      (Xanadu, https://github.com/PennyLaneAI/pennylane)
+  * Pulser / pulser-simulation ........................... Apache-2.0
+      (Pasqal, https://github.com/pasqal-io/Pulser)
+  * Strawberry Fields .................................... Apache-2.0
+      (Xanadu, https://github.com/XanaduAI/strawberryfields)
+  * MrMustard ............................................ Apache-2.0
+      (Xanadu, https://github.com/XanaduAI/MrMustard)
+  * Bloqade .............................................. Apache-2.0
+      (QuEra, https://github.com/QuEraComputing/bloqade-python)
+  * pytket / TKET ........................................ Apache-2.0
+      (Quantinuum, https://github.com/CQCL/tket)
+  * BQSKit ............................................... BSD-3-Clause
+      (LBNL, https://github.com/BQSKit/bqskit)
+  * MQT Core ............................................. MIT
+      (TU Munich, https://github.com/cda-tum/mqt-core)
+  * Mitiq ................................................ GPL-3.0
+      (Unitary Fund, https://github.com/unitaryfoundation/mitiq).
+      qmesh links to Mitiq dynamically only when the user opts in via the
+      `[mitiq]` extra; qmesh itself does not include any Mitiq source.
+  * Stim ................................................. Apache-2.0
+      (Google Quantum AI, https://github.com/quantumlib/Stim)
+  * PyMatching ........................................... Apache-2.0
+      (https://github.com/oscarhiggott/PyMatching)
+  * Amazon Braket SDK .................................... Apache-2.0
+      (AWS, https://github.com/aws/amazon-braket-sdk-python)
+  * CUDA-Q ............................................... Apache-2.0
+      (NVIDIA, https://github.com/NVIDIA/cuda-quantum)
+  * OpenQASM 3 reference parser .......................... Apache-2.0
+  * NumPy ................................................ BSD-3-Clause
+  * Pydantic ............................................. MIT
+  * cryptography ......................................... Apache-2.0 / BSD
+  * Rich, Typer .......................................... MIT
+  * FastAPI, Uvicorn, SQLAlchemy ......................... MIT / BSD
+  * PyTorch .............................................. BSD-style
+  * Outlines ............................................. Apache-2.0
+
+The list above tracks the runtime dependencies declared in pyproject.toml
+at the time of release. It is informational; consult each project for the
+authoritative license text.
+
+------------------------------------------------------------------------
+
+"qmesh" and the qmesh logo are unregistered marks of Neuraparse. The
+Apache 2.0 license does not grant trademark rights — see Section 6 of the
+License.

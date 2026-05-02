@@ -1,0 +1,13 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/neuraparse/qmesh/security/advisories/new
+    about: >-
+      Please do NOT open a public issue for security problems.
+      Use a private advisory or email security@neuraparse.com.
+      See SECURITY.md for the disclosure policy.
+  - name: Question or discussion
+    url: https://github.com/neuraparse/qmesh/discussions
+    about: >-
+      For usage questions, design discussions, or "is this a bug?"
+      threads, please open a Discussion instead of an issue.

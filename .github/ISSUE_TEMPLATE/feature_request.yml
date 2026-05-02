@@ -1,0 +1,71 @@
+name: Feature request
+description: Propose a new capability or enhancement for qmesh.
+title: "[feat] <short summary>"
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Feature requests should map to a specific surface in qmesh — IR,
+        compiler pass, backend wrapper, scheduler primitive, manifest
+        field, AI flow, or CLI/REST endpoint. If you are unsure where it
+        fits, that is OK — we will help triage.
+
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Which qmesh surface does this touch?
+      multiple: true
+      options:
+        - IR (Module / Function / Region / Op)
+        - compiler pass (TKET / BQSKit / MQT wrapping)
+        - backend (gate / analog / photonic-CV / pulse)
+        - FT scheduler (MCMRegion, placement)
+        - QEC + decoders (Stim / PyMatching / learned decoders)
+        - AI copilot
+        - provenance / manifest / replay / diff
+        - CLI / REST / deploy
+        - tests / examples / docs
+        - other
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: >-
+        What problem does this solve? Cite a paper, vendor announcement,
+        or use-case if relevant. We prefer requests grounded in 2025-2026
+        reality (see PLAN.md §1).
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: >-
+        High-level sketch of the API or behavior. Pseudocode is welcome.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: >-
+        Especially: is there an upstream library that already does this
+        well? qmesh prefers to wrap rather than reimplement.
+
+  - type: dropdown
+    id: phase
+    attributes:
+      label: α or β?
+      description: See CONTRIBUTING.md for the α-then-β cadence.
+      options:
+        - "α — minimal skeleton + a centerpiece test"
+        - "β — depth, integrations, scale"
+        - "not sure, please advise"
+    validations:
+      required: true

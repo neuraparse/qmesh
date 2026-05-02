@@ -1,0 +1,92 @@
+name: Bug report
+description: Something in qmesh is broken or behaves unexpectedly.
+title: "[bug] <short summary>"
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug.
+
+        **Before submitting:** please confirm the issue reproduces on the
+        latest tagged release on `main`. If it touches the manifest
+        signer, AI copilot, FT scheduler, or REST/CLI submit path, also
+        review `SECURITY.md` — some issues should be reported privately.
+
+  - type: input
+    id: qmesh_version
+    attributes:
+      label: qmesh version
+      description: Output of `python -c "import qmesh; print(qmesh.__version__)"`.
+      placeholder: "0.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: python_version
+    attributes:
+      label: Python version
+      description: Output of `python --version`.
+      placeholder: "3.11.x"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: modality
+    attributes:
+      label: Modality / backend involved
+      multiple: true
+      options:
+        - gate-based (Aer / TKET / BQSKit / MQT)
+        - neutral-atom analog (Pulser / Pasqal / QuEra)
+        - photonic-CV (Strawberry Fields / Aurora)
+        - pulse-level
+        - FT scheduler / Stim / PyMatching
+        - AI copilot
+        - provenance / manifest / replay
+        - service / CLI / deploy
+        - other
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened?
+      description: A clear, concise description of the bug.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: >-
+        Smallest possible script, command, or test that triggers the bug.
+        Include the seed if randomness is involved.
+      render: python
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / traceback / manifest excerpt
+      render: shell
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Pre-flight
+      options:
+        - label: I have read CONTRIBUTING.md and CODE_OF_CONDUCT.md.
+          required: true
+        - label: This issue is NOT a security vulnerability (those go to security@neuraparse.com).
+          required: true

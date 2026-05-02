@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use qmesh in academic work, please cite it as below."
+title: "qmesh: a 2026-native quantum operating layer"
+abstract: >-
+  qmesh is a modality-agnostic quantum IR with an AI-augmented compiler,
+  fault-tolerant-mode scheduling, and reproducibility-as-runtime across
+  gate-based, neutral-atom analog, photonic-CV, and pulse-level backends.
+type: software
+version: "0.1.0"
+date-released: "2026-05-02"
+license: Apache-2.0
+repository-code: "https://github.com/neuraparse/qmesh"
+url: "https://neuraparse.com"
+keywords:
+  - quantum-computing
+  - quantum-compiler
+  - fault-tolerant
+  - quantum-error-correction
+  - neutral-atom
+  - photonic
+  - pulse-level
+  - provenance
+  - reproducibility
+  - hybrid-hpc
+authors:
+  - name: "Neuraparse"
+    website: "https://neuraparse.com"
+    email: "open-source@neuraparse.com"
+contact:
+  - email: "open-source@neuraparse.com"
+    name: "Neuraparse — qmesh maintainers"

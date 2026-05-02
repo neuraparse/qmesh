@@ -1,0 +1,123 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "qmesh"
+version = "0.1.0"
+description = "A 2026-native quantum operating layer: modality-agnostic IR, AI-augmented compiler, FT-mode scheduling, reproducibility-as-runtime."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.11"
+authors = [
+    { name = "Neuraparse", email = "open-source@neuraparse.com" },
+]
+maintainers = [
+    { name = "Neuraparse", email = "open-source@neuraparse.com" },
+]
+keywords = [
+    "quantum",
+    "quantum-computing",
+    "compiler",
+    "fault-tolerant",
+    "qec",
+    "hybrid-hpc",
+    "rydberg",
+    "photonic",
+    "provenance",
+    "neuraparse",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Compilers",
+    "Typing :: Typed",
+]
+
+dependencies = [
+    "numpy>=1.26",
+    "cryptography>=42",
+    "pydantic>=2.6",
+    "rich>=13.7",
+    "typer>=0.12",
+    # Core compiler + FT primitives — imported at module load.
+    "openqasm3>=1.0",
+    "stim>=1.15",
+    "pymatching>=2.1",
+]
+
+[project.optional-dependencies]
+qiskit = ["qiskit>=2.0", "qiskit-aer>=0.15"]
+cirq = ["cirq>=1.4"]
+pennylane = ["pennylane>=0.44"]
+pulser = ["pulser>=1.7", "pulser-simulation>=1.7"]
+sf = ["strawberryfields>=0.23"]
+braket = ["amazon-braket-sdk>=1.90"]
+tket = ["pytket>=2.0"]
+bqskit = ["bqskit>=1.2"]
+mqt = ["mqt-core>=3.0"]
+mitiq = ["mitiq>=1.0"]
+cudaq = ["cuda-quantum>=0.14"]
+# AI copilot (LLM providers + neural-decoder training).
+ai = [
+    "openai>=1.30",
+    "anthropic>=0.30",
+    "torch>=2.0",
+]
+service = ["fastapi>=0.110", "uvicorn[standard]>=0.30", "sqlalchemy>=2.0"]
+all = [
+    "qiskit>=2.0", "qiskit-aer>=0.15", "cirq>=1.4",
+    "pennylane>=0.44", "pulser>=1.7", "pulser-simulation>=1.7",
+    "strawberryfields>=0.23",
+    "amazon-braket-sdk>=1.90", "pytket>=2.0", "bqskit>=1.2", "mqt-core>=3.0",
+    "mitiq>=1.0", "torch>=2.0", "openai>=1.30", "anthropic>=0.30",
+]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+    "mypy>=1.10",
+    "hypothesis>=6.100",
+]
+
+[project.urls]
+Homepage      = "https://neuraparse.com"
+Organization  = "https://github.com/neuraparse"
+Repository    = "https://github.com/neuraparse/qmesh"
+Source        = "https://github.com/neuraparse/qmesh"
+Issues        = "https://github.com/neuraparse/qmesh/issues"
+Documentation = "https://github.com/neuraparse/qmesh#readme"
+Changelog     = "https://github.com/neuraparse/qmesh/blob/main/CHANGELOG.md"
+"Bug Tracker" = "https://github.com/neuraparse/qmesh/issues"
+"Security"    = "https://github.com/neuraparse/qmesh/blob/main/SECURITY.md"
+
+[project.scripts]
+qmesh = "qmesh.cli.__main__:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["qmesh"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "SIM", "RUF"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_ignores = true
+warn_return_any = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
