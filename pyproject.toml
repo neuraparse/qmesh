@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "A 2026-native quantum operating layer: modality-agnostic IR, AI-augmented compiler, FT-mode scheduling, reproducibility-as-runtime."
 readme = "README.md"
 license = { text = "Apache-2.0" }
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 authors = [
     { name = "Neuraparse", email = "open-source@neuraparse.com" },
 ]
@@ -35,8 +35,10 @@ classifiers = [
     "Operating System :: POSIX :: Linux",
     "Operating System :: MacOS",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Scientific/Engineering :: Physics",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Topic :: Software Development :: Compilers",
@@ -45,41 +47,56 @@ classifiers = [
 
 dependencies = [
     "numpy>=1.26",
-    "cryptography>=42",
+    "cryptography>=45",       # 47.0 current (2026)
     "pydantic>=2.6",
     "rich>=13.7",
     "typer>=0.12",
     # Core compiler + FT primitives — imported at module load.
     "openqasm3>=1.0",
-    "stim>=1.15",
-    "pymatching>=2.1",
+    "stim>=1.15",             # 1.15.0 (May 2025) — current 2026 release
+    "pymatching>=2.3",        # 2.3 brought correlated matching
 ]
 
 [project.optional-dependencies]
-qiskit = ["qiskit>=2.0", "qiskit-aer>=0.15"]
-cirq = ["cirq>=1.4"]
-pennylane = ["pennylane>=0.44"]
-pulser = ["pulser>=1.7", "pulser-simulation>=1.7"]
-sf = ["strawberryfields>=0.23"]
-braket = ["amazon-braket-sdk>=1.90"]
-tket = ["pytket>=2.0"]
-bqskit = ["bqskit>=1.2"]
-mqt = ["mqt-core>=3.0"]
-mitiq = ["mitiq>=1.0"]
-cudaq = ["cuda-quantum>=0.14"]
+# Frontends + simulators. Pinned to versions verified working under qmesh tests
+# on 2026-05-02 (157 passing). Anything missing falls back to a lazy-import
+# error at first use — qmesh degrades gracefully.
+qiskit  = ["qiskit>=2.0,<3.0", "qiskit-aer>=0.17"]   # qiskit 2.4.1 + aer 0.17.2
+cirq    = ["cirq>=1.5"]                              # 1.5+ (1.6 in Mitiq deps)
+pennylane = ["pennylane>=0.42"]                      # 0.42.3 current (Feb 2026)
+qbraid  = ["qbraid>=0.11"]                           # 0.12.0 — needs >=0.11 for API V2
+pulser  = ["pulser>=1.7", "pulser-simulation>=1.7"]
+sf      = ["strawberryfields>=0.23"]                 # 0.23 is final; SF in maintenance
+mrmustard = ["mrmustard>=0.7"]                       # 0.7.3 — Xanadu's SF successor
+bloqade = ["bloqade>=0.33"]
+braket  = ["amazon-braket-sdk>=1.90"]
+tket    = ["pytket>=2.10"]                           # 2.16.0 current
+bqskit  = ["bqskit>=1.2"]                            # 1.2.1 current
+mqt     = ["mqt-core>=3.0"]                          # 3.5.1 current
+mitiq   = ["mitiq>=0.47"]                            # 0.47.0 current (Mitiq has no 1.0 yet)
+ldpc    = ["ldpc>=2.3"]                              # 2.4.1 current — for BP+OSD
+cudaq   = ["cuda-quantum>=0.14"]
 # AI copilot (LLM providers + neural-decoder training).
 ai = [
     "openai>=1.30",
     "anthropic>=0.30",
-    "torch>=2.0",
+    "torch>=2.0",                # 2.11 current; CPU + CUDA wheels both work
+    "tiktoken>=0.7",             # token-level grammar masking (LogitBiasAdapter)
 ]
 service = ["fastapi>=0.110", "uvicorn[standard]>=0.30", "sqlalchemy>=2.0"]
 all = [
-    "qiskit>=2.0", "qiskit-aer>=0.15", "cirq>=1.4",
-    "pennylane>=0.44", "pulser>=1.7", "pulser-simulation>=1.7",
+    "qiskit>=2.0,<3.0", "qiskit-aer>=0.17",
+    "cirq>=1.5",
+    "pennylane>=0.42",
+    "qbraid>=0.11",
+    "pulser>=1.7", "pulser-simulation>=1.7",
     "strawberryfields>=0.23",
-    "amazon-braket-sdk>=1.90", "pytket>=2.0", "bqskit>=1.2", "mqt-core>=3.0",
-    "mitiq>=1.0", "torch>=2.0", "openai>=1.30", "anthropic>=0.30",
+    "mrmustard>=0.7",
+    "bloqade>=0.33",
+    "amazon-braket-sdk>=1.90",
+    "pytket>=2.10", "bqskit>=1.2", "mqt-core>=3.0",
+    "mitiq>=0.47", "ldpc>=2.3",
+    "torch>=2.0", "openai>=1.30", "anthropic>=0.30", "tiktoken>=0.7",
 ]
 dev = [
     "pytest>=8.0",
@@ -107,14 +124,14 @@ packages = ["qmesh"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py310"
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "N", "UP", "B", "SIM", "RUF"]
 ignore = ["E501"]
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.10"
 strict = true
 warn_unused_ignores = true
 warn_return_any = true

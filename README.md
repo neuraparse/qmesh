@@ -14,7 +14,7 @@
 
 <p>
   <a href="./LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-0A0A0A?style=for-the-badge&logo=apache&logoColor=white"></a>
-  <a href="https://www.python.org/downloads/"><img alt="Python" src="https://img.shields.io/badge/Python-3.11%2B-0A0A0A?style=for-the-badge&logo=python&logoColor=white"></a>
+  <a href="https://www.python.org/downloads/"><img alt="Python" src="https://img.shields.io/badge/Python-3.10%2B-0A0A0A?style=for-the-badge&logo=python&logoColor=white"></a>
   <a href="./tests"><img alt="Tests" src="https://img.shields.io/badge/Tests-157%20passing-22C55E?style=for-the-badge&logo=pytest&logoColor=white"></a>
   <a href="./PLAN.md"><img alt="Phases" src="https://img.shields.io/badge/Phases%201--6-shipped-0EA5E9?style=for-the-badge"></a>
 </p>
@@ -223,6 +223,28 @@ The same teams that ship those projects win when qmesh wins. That is the design 
 - **Cultivation parameters** match Gidney & Shutty (arXiv:2409.17595): 4×10⁻¹¹ logical T-state error at 5×10⁻⁴ physical noise.
 - **Cross-modality** programs run on three modalities × four backends in a single signed manifest.
 - **Test suite**: 157 passing, 1 skipped (tiktoken-optional), in 9.6 seconds.
+- **All 20 examples** in [`examples/`](./examples/) execute end-to-end on the 2026 stack below.
+
+### Verified 2026 dependency matrix
+
+Versions qmesh is tested against (Python 3.10–3.13):
+
+| Package | Tested | PyPI latest | Notes |
+|---|---|---|---|
+| qiskit | 2.4.1 | 2.4.x | Pulse module removed in 2.0; OpenPulse backend handles it |
+| qiskit-aer | 0.17.2 | 0.17.2 | Released Feb 2026 |
+| cirq | 1.5.0 | 1.6.x | |
+| stim | 1.15.0 | 1.15.0 | Required for FT mode |
+| pymatching | 2.3.1 | 2.3.x | v2.3 brought correlated matching |
+| pulser | 1.7.2 | 1.7.x | Pasqal Rydberg simulator |
+| strawberryfields | 0.23.0 | 0.23.0 | Maintenance; MrMustard is the successor |
+| mrmustard | 0.7.3 | 0.7.x | Xanadu's differentiable CV simulator |
+| bloqade | 0.33.0 | 0.33.x | QuEra neutral-atom |
+| pennylane | 0.42.3 | 0.42.x | |
+| qbraid | 0.12.0 | 0.12.x | Requires ≥0.11 for API V2 |
+| pytket | 2.16.0 | 2.16.x | TKET compiler bindings |
+| mitiq | 0.47.0 | 0.47.0 | ZNE error mitigation |
+| ldpc | 2.4.1 | 2.4.x | Optional, BP+OSD decoder |
 
 Full per-area research notes live in [`docs/research/`](./docs/research/).
 
