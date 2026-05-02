@@ -15,7 +15,19 @@ qmesh.aer simulator before being returned.
 
 from __future__ import annotations
 
+from qmesh.ai.constrained_decoding import (
+    ConstrainedQASMGenerator,
+    QASMGrammarGate,
+    validate_qasm,
+    validate_qasm_streaming,
+)
 from qmesh.ai.copilot import DraftResult, draft
+from qmesh.ai.grammar_mask import (
+    LogitBiasAdapter,
+    OutlinesAdapter,
+    StubAdapter,
+    compile_grammar_mask,
+)
 from qmesh.ai.intent import IntentResult, compile_intent
 from qmesh.ai.llm import (
     AnthropicProvider,
@@ -25,18 +37,6 @@ from qmesh.ai.llm import (
     OllamaProvider,
     OpenAIProvider,
     auto_provider,
-)
-from qmesh.ai.constrained_decoding import (
-    ConstrainedQASMGenerator,
-    QASMGrammarGate,
-    validate_qasm,
-    validate_qasm_streaming,
-)
-from qmesh.ai.grammar_mask import (
-    LogitBiasAdapter,
-    OutlinesAdapter,
-    StubAdapter,
-    compile_grammar_mask,
 )
 from qmesh.ai.quanbench import (
     BUILTIN_SUITE,

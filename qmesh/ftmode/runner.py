@@ -16,12 +16,10 @@ from __future__ import annotations
 
 import json
 import time
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from hashlib import sha256
 from pathlib import Path
 from typing import TYPE_CHECKING
-
-import numpy as np
 
 from qmesh import __version__
 from qmesh.ftmode.estimate import estimate
@@ -428,5 +426,5 @@ def _lattice_surgery_run(
 def _replace(cfg, **changes):
     """Local helper: dataclass.replace doesn't work on slotted dataclasses
     with default factory fields cleanly across all Python versions."""
-    from dataclasses import fields, replace
+    from dataclasses import replace
     return replace(cfg, **changes)

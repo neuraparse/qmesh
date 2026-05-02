@@ -16,7 +16,6 @@ from qmesh.frontends.qasm3 import parse as qasm_parse
 from qmesh.provenance.manifest import ManifestSigner
 from qmesh.router import Objective, choose
 
-
 LEDGER_DIR = Path(os.getenv("QMESH_LEDGER_DIR", "ledger"))
 
 
@@ -96,10 +95,18 @@ def create_app() -> FastAPI:
             manifest_path=str(manifest_path),
         )
 
+    def _hash_matches(stem: str, query: str) -> bool:
+        """A manifest filename matches a query if either is a prefix of the
+        other. Manifests are saved as `<hash[:16]>.json`, so callers passing
+        either the full 64-char hash returned by `/submit` *or* the 16-char
+        on-disk prefix both resolve. Falls back to the manifest's own
+        `hash()` field for exact equality if needed."""
+        return stem.startswith(query) or query.startswith(stem)
+
     @app.get("/manifests/{partial_hash}")
     def get_manifest(partial_hash: str) -> dict:
         for p in LEDGER_DIR.rglob("*.json"):
-            if p.stem.startswith(partial_hash):
+            if _hash_matches(p.stem, partial_hash):
                 return json.loads(p.read_text())
         raise HTTPException(404, f"no manifest with hash starting '{partial_hash}'")
 
@@ -107,7 +114,7 @@ def create_app() -> FastAPI:
     def verify_manifest(partial_hash: str) -> dict:
         from qmesh.provenance.manifest import Manifest
         for p in LEDGER_DIR.rglob("*.json"):
-            if p.stem.startswith(partial_hash):
+            if _hash_matches(p.stem, partial_hash):
                 data = json.loads(p.read_text())
                 m = Manifest(**{k: v for k, v in data.items() if k in Manifest.__slots__})
                 ok = ManifestSigner.verify(m)

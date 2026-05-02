@@ -98,7 +98,6 @@ def test_openpulse_qiskit_pulse_status_reported_truthfully():
     """The capabilities + run() metadata report whether qiskit.pulse is
     actually importable. This is what auditors read to know if they're
     looking at β (real schedule) or α (descriptor-only)."""
-    import qmesh
     from qmesh.backends import get
     from qmesh.backends.openpulse_sim import _pulse_module_available
 

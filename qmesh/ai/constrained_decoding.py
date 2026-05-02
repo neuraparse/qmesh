@@ -30,10 +30,9 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
-from typing import Iterable, Iterator
+from typing import Iterator
 
 from qmesh.ai.llm import CompletionResult, LLMProvider
-
 
 # Gate set qmesh.ai.intent emits + a few common extras.
 _GATES_NO_PARAM = {

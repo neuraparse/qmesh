@@ -27,9 +27,7 @@ from __future__ import annotations
 
 import hashlib
 import time
-from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
 
 import numpy as np
 
@@ -120,7 +118,6 @@ class _NeuralAdapter:
     """
 
     def __init__(self, model, buckets: list[list[int]], d_per_round: int) -> None:
-        import torch
         self._model = model
         self._buckets = buckets
         self._d_per_round = d_per_round

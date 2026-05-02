@@ -89,9 +89,9 @@ from typing import Any, Callable
 from qmesh.ir.module import Function, Module, Region
 from qmesh.ir.ops import (
     BarrierOp,
-    CVOp,
     ChannelOp,
     ClassicalOp,
+    CVOp,
     DelayOp,
     GateOp,
     MeasureOp,
@@ -102,7 +102,6 @@ from qmesh.ir.ops import (
 )
 from qmesh.ir.types import Atom, Bit, Modality, Qubit, Qumode
 from qmesh.scheduler.dag import DAG, ClassicalTask, QPUPrimitive
-
 
 # Default backend per modality. Callers can override via `backend_for`.
 _DEFAULT_BACKEND: dict[Modality, str] = {

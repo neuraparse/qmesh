@@ -29,7 +29,7 @@ import time
 from dataclasses import dataclass, field
 from hashlib import sha256
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 from qmesh import __version__
 from qmesh.provenance.manifest import _canonical_json
@@ -365,7 +365,7 @@ def verify_pack(
             ``n_trusted`` and ``untrusted_signers``. When ``None`` the
             trust audit is skipped and those fields stay at defaults.
     """
-    from qmesh.compliance.trust import TrustStore, verify_chain as _verify_chain
+    from qmesh.compliance.trust import verify_chain as _verify_chain
     arc = Path(archive_path)
     errors: list[str] = []
     notes: list[str] = []

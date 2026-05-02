@@ -13,15 +13,11 @@ qasm3_text for the supported subset. This is the property the test suite checks.
 
 from __future__ import annotations
 
-import io
-from textwrap import dedent
-
 from openqasm3 import ast
 from openqasm3.parser import parse as _qasm_parse
 
 from qmesh.ir.builder import circuit
 from qmesh.ir.module import Module
-
 
 _KNOWN_GATES_NO_PARAM = {
     "h", "x", "y", "z", "s", "sdg", "t", "tdg", "id",
@@ -190,7 +186,7 @@ def emit(module: Module) -> str:
     Only the gate modality is emitted today — Rydberg / CV / Pulse op modalities
     raise NotImplementedError because OpenQASM 3 has no portable surface for them.
     """
-    from qmesh.ir.ops import GateOp, MeasureOp, ResetOp, BarrierOp, DelayOp
+    from qmesh.ir.ops import BarrierOp, DelayOp, GateOp, MeasureOp, ResetOp
     from qmesh.ir.types import Modality
 
     lines: list[str] = ["OPENQASM 3.0;", 'include "stdgates.inc";', ""]

@@ -38,11 +38,11 @@ from hashlib import sha256
 from typing import Any, Iterable
 
 try:
+    from cryptography.hazmat.primitives import serialization
     from cryptography.hazmat.primitives.asymmetric.ed25519 import (
         Ed25519PrivateKey,
         Ed25519PublicKey,
     )
-    from cryptography.hazmat.primitives import serialization
     _HAS_CRYPTO = True
 except ImportError:
     _HAS_CRYPTO = False

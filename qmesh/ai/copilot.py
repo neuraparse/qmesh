@@ -22,10 +22,9 @@ from dataclasses import dataclass, field
 from typing import Any, Callable
 
 from qmesh.ai.intent import compile_intent
-from qmesh.ai.llm import LLMProvider, MockProvider, auto_provider
+from qmesh.ai.llm import LLMProvider, auto_provider
 from qmesh.frontends.qasm3 import parse as parse_qasm3
 from qmesh.ir.module import Module
-
 
 SYSTEM_PROMPT = """You are a quantum-circuit assistant. Given a natural-language
 request, produce **OpenQASM 3.0** source for a circuit that satisfies it. Output

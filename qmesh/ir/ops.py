@@ -6,15 +6,9 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from qmesh.ir.types import (
-    Atom,
-    Bit,
     Channel,
-    ClassicalFloat,
-    ClassicalInt,
     Modality,
     QType,
-    Qubit,
-    Qumode,
 )
 
 

@@ -22,17 +22,32 @@ from dataclasses import dataclass, field
 from enum import Enum
 
 from qmesh.ftmode.codes import (
-    BBCode, Code, CodeMetadata, RepetitionCode, SurfaceCode, UnrotatedSurfaceCode,
+    BBCode,
+    Code,
+    CodeMetadata,
+    RepetitionCode,
+    SurfaceCode,
+    UnrotatedSurfaceCode,
 )
 from qmesh.ftmode.cultivation import (
-    CultivationParams, DistillationFactory, InPlaceCultivation, MagicStateFactory,
+    CultivationParams,
+    DistillationFactory,
+    InPlaceCultivation,
+    MagicStateFactory,
 )
 from qmesh.ftmode.decoders import (
-    BpOsdDecoder, Decoder, DecodeResult, PyMatchingDecoder,
-    SlidingWindowMWPMDecoder, StreamingMWPMDecoder, get_decoder,
+    BpOsdDecoder,
+    Decoder,
+    DecodeResult,
+    PyMatchingDecoder,
+    SlidingWindowMWPMDecoder,
+    StreamingMWPMDecoder,
+    get_decoder,
 )
 from qmesh.ftmode.estimate import (
-    ResourceEstimate, estimate, estimate_for_distances,
+    ResourceEstimate,
+    estimate,
+    estimate_for_distances,
 )
 
 
@@ -90,11 +105,10 @@ class FTConfig:
 
 
 from qmesh.ftmode.runner import (  # noqa: E402  (after FTConfig defined)
-    promote_and_run,
     memory_experiment,
+    promote_and_run,
     threshold_sweep,
 )
-
 
 __all__ = [
     "FTConfig", "CodeChoice", "DecoderChoice",

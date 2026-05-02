@@ -47,6 +47,7 @@ def from_qbraid(program: Any, *, name: str | None = None) -> Module:
             "qbraid not installed; `pip install qbraid>=0.7` to enable."
         )
     from qbraid.transpiler import transpile  # type: ignore[import-not-found]
+
     from qmesh.frontends.qasm3 import parse as parse_qasm3
 
     qasm_src = transpile(program, "qasm3")

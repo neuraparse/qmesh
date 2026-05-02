@@ -43,8 +43,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from qmesh import __version__
-from qmesh.provenance.manifest import Manifest, ManifestSigner, _canonical_json
-
+from qmesh.provenance.manifest import _canonical_json
 
 # --------------------------------------------------------------------------- #
 # Loading helpers                                                             #

@@ -20,8 +20,8 @@ from __future__ import annotations
 from qmesh.metriq.exporter import (
     export_manifest,
     export_run_dir,
-    submit_to_metriq,
     metriq_submission_from_manifest,
+    submit_to_metriq,
 )
 
 __all__ = [

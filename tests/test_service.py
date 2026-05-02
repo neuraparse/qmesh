@@ -9,6 +9,7 @@ def _client():
     pytest.importorskip("fastapi")
     pytest.importorskip("httpx")
     from fastapi.testclient import TestClient
+
     from qmesh.service.app import app
     return TestClient(app)
 
@@ -42,7 +43,21 @@ c[0] = measure q[0]; c[1] = measure q[1];
     assert data["shots"] == 1024
     assert data["chosen_backend"] in ("qmesh.statevec", "qmesh.aer", "qmesh.stim")
 
-    # verify
+    # verify with the 16-char on-disk prefix
     v = c.get(f"/manifests/{data['manifest_hash'][:16]}/verify")
     assert v.status_code == 200
     assert v.json()["verified"] is True
+
+    # verify with the full 64-char hash that /submit actually returns —
+    # this is the typical caller flow. The lookup must accept it too.
+    full = c.get(f"/manifests/{data['manifest_hash']}/verify")
+    assert full.status_code == 200, (
+        f"GET /manifests/<full-hash>/verify returned {full.status_code}; "
+        f"the lookup should accept the full hash that /submit emits."
+    )
+    assert full.json()["verified"] is True
+
+    # GET the manifest body with the full hash works too.
+    body = c.get(f"/manifests/{data['manifest_hash']}")
+    assert body.status_code == 200
+    assert body.json()["qmesh_version"]

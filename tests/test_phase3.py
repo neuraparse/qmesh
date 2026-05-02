@@ -167,7 +167,10 @@ def _bloqade_program():
     qmesh.frontends.bloqade so the test runs either way.
     """
     from qmesh.frontends.bloqade import (
-        BloqadeAtom, BloqadeProgram, BloqadeRegister, DriveSegment,
+        BloqadeAtom,
+        BloqadeProgram,
+        BloqadeRegister,
+        DriveSegment,
     )
     register = BloqadeRegister(atoms=[
         BloqadeAtom(position=(0.0, 0.0, 0.0)),
@@ -193,7 +196,7 @@ def test_bloqade_frontend_translates_atoms_and_pulses():
     # because the shim exercises the production code path.
     pytest.importorskip("qmesh.frontends.bloqade")
     from qmesh.frontends.bloqade import from_bloqade
-    from qmesh.ir.ops import DelayOp, MeasureOp, RydbergOp
+    from qmesh.ir.ops import RydbergOp
     from qmesh.ir.types import Atom
 
     prog = _bloqade_program()
@@ -486,7 +489,8 @@ def test_channelop_rydberg_to_gate_lowering():
     """rydberg→gate ChannelOp wires up; bridge fn yields p_excited;
     downstream module_factory scales the first ry's params[0]."""
     from qmesh.scheduler.channelop_lowering import (
-        SUPPORTED_KINDS, lower_module_to_dag,
+        SUPPORTED_KINDS,
+        lower_module_to_dag,
     )
     assert "rydberg->gate" in SUPPORTED_KINDS
 
@@ -560,7 +564,8 @@ def _module_cv_to_gate():
 
 def test_channelop_cv_to_gate_lowering():
     from qmesh.scheduler.channelop_lowering import (
-        SUPPORTED_KINDS, lower_module_to_dag,
+        SUPPORTED_KINDS,
+        lower_module_to_dag,
     )
     assert "cv->gate" in SUPPORTED_KINDS
 
@@ -642,7 +647,8 @@ def _module_cv_to_rydberg():
 
 def test_channelop_cv_to_rydberg_lowering():
     from qmesh.scheduler.channelop_lowering import (
-        SUPPORTED_KINDS, lower_module_to_dag,
+        SUPPORTED_KINDS,
+        lower_module_to_dag,
     )
     assert "cv->rydberg" in SUPPORTED_KINDS
 
@@ -682,7 +688,8 @@ def test_channelop_pulse_kinds_register_with_lowering():
     from qmesh.ir.ops import ChannelOp, MeasureOp, PulseOp
     from qmesh.ir.types import Bit
     from qmesh.scheduler.channelop_lowering import (
-        SUPPORTED_KINDS, lower_module_to_dag,
+        SUPPORTED_KINDS,
+        lower_module_to_dag,
     )
 
     assert "gate->pulse" in SUPPORTED_KINDS
@@ -744,7 +751,8 @@ def test_channelop_unsupported_kind_still_errors_clearly():
     from qmesh.ir.ops import ChannelOp, MeasureOp, RydbergOp
     from qmesh.ir.types import Atom, Bit
     from qmesh.scheduler.channelop_lowering import (
-        SUPPORTED_KINDS, lower_module_to_dag,
+        SUPPORTED_KINDS,
+        lower_module_to_dag,
     )
 
     invented_kind = "gate->wormhole"

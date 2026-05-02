@@ -21,7 +21,6 @@ from qmesh.ftmode import (
 )
 from qmesh.provenance.manifest import ManifestSigner
 
-
 # ---------- codes ----------
 
 def test_surface_code_metadata():
@@ -216,9 +215,8 @@ def test_promote_and_run_rejects_unsupported_gate(tmp_path):
     Arbitrary-angle rotations (e.g. rx/ry/rz) remain out of scope and must
     still raise."""
     from qmesh.ftmode import promote_and_run
-    from qmesh.ir.module import Module
     from qmesh.ir.ops import GateOp
-    from qmesh.ir.types import Qubit, Modality
+    from qmesh.ir.types import Modality, Qubit
     # Build an IR module with an unsupported `rx` gate by hand so the
     # frontend's gate-set guard doesn't reject it before lowering.
     with qmesh.circuit("logical", n_qubits=1, n_bits=1) as c:
@@ -379,8 +377,11 @@ def test_streaming_decoder_matches_batch_decoder():
     pytest.importorskip("pymatching")
     pytest.importorskip("stim")
     import numpy as np
+
     from qmesh.ftmode import (
-        PyMatchingDecoder, StreamingMWPMDecoder, SurfaceCode,
+        PyMatchingDecoder,
+        StreamingMWPMDecoder,
+        SurfaceCode,
     )
 
     code = SurfaceCode(distance=3, rounds=4)
@@ -427,8 +428,11 @@ def test_streaming_decoder_warm_state_matches_batch_predictions():
     pytest.importorskip("pymatching")
     pytest.importorskip("stim")
     import numpy as np
+
     from qmesh.ftmode import (
-        PyMatchingDecoder, StreamingMWPMDecoder, SurfaceCode,
+        PyMatchingDecoder,
+        StreamingMWPMDecoder,
+        SurfaceCode,
     )
 
     code = SurfaceCode(distance=3, rounds=50)
@@ -459,6 +463,7 @@ def test_streaming_decoder_warm_state_processes_long_circuits():
     pytest.importorskip("pymatching")
     pytest.importorskip("stim")
     import time
+
     from qmesh.ftmode import StreamingMWPMDecoder, SurfaceCode
 
     code = SurfaceCode(distance=3, rounds=30)

@@ -43,7 +43,6 @@ from typing import Any, Callable
 from qmesh.ir.module import Module
 from qmesh.scheduler.dag import Node
 
-
 # ---------- HPC primitive node ----------
 
 @dataclass(slots=True)

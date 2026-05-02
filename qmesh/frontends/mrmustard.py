@@ -38,7 +38,7 @@ from typing import TYPE_CHECKING, Any
 from qmesh.ir.builder import circuit
 from qmesh.ir.module import Module
 from qmesh.ir.ops import CVOp, MeasureOp
-from qmesh.ir.types import Bit, Modality, Qumode
+from qmesh.ir.types import Bit, Modality
 
 if TYPE_CHECKING:
     pass

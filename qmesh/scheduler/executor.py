@@ -23,7 +23,7 @@ import time
 import traceback
 import uuid
 from concurrent.futures import Future, ThreadPoolExecutor
-from dataclasses import asdict, dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -33,7 +33,6 @@ from qmesh.provenance.manifest import Manifest, ManifestSigner
 from qmesh.scheduler.dag import (
     DAG,
     Barrier,
-    BellPairClaim,
     ClassicalTask,
     EntanglementBarrier,
     Fanout,

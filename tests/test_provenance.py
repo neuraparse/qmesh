@@ -2,11 +2,9 @@
 
 from __future__ import annotations
 
-import json
-
 import qmesh
 from qmesh.api import diff, replay
-from qmesh.provenance.manifest import Manifest, ManifestSigner
+from qmesh.provenance.manifest import ManifestSigner
 
 
 def _bell():

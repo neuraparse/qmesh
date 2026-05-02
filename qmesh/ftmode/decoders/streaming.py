@@ -50,7 +50,7 @@ from typing import Iterable, Iterator
 
 import numpy as np
 
-from qmesh.ftmode.decoders.base import DecodeResult, Decoder
+from qmesh.ftmode.decoders.base import Decoder, DecodeResult
 
 
 @dataclass

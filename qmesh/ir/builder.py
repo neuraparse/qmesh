@@ -17,7 +17,7 @@ from contextlib import contextmanager
 from typing import Iterator
 
 from qmesh.ir.module import Function, Module, Region
-from qmesh.ir.ops import GateOp, MeasureOp, ResetOp, RydbergOp, CVOp, BarrierOp, DelayOp
+from qmesh.ir.ops import BarrierOp, CVOp, DelayOp, GateOp, MeasureOp, ResetOp, RydbergOp
 from qmesh.ir.types import Atom, Bit, Modality, Qubit, Qumode
 
 

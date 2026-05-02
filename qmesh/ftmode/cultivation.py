@@ -30,7 +30,7 @@ savings vs distillation.
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:  # pragma: no cover
@@ -179,7 +179,7 @@ def emit_cultivation_block(
       LatticeSurgeryProgram's manifest still notes the data qubit each
       block targets so downstream tooling can correlate.
     """
-    import stim   # local import: keep cultivation.py importable without stim
+    import stim  # local import: keep cultivation.py importable without stim
 
     circuit.append("TICK")
     circuit.append("R", [ancilla_qubit])

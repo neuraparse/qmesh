@@ -15,7 +15,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from qmesh.ftmode.decoders.base import DecodeResult, Decoder
+from qmesh.ftmode.decoders.base import Decoder, DecodeResult
 
 
 @dataclass

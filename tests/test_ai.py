@@ -2,15 +2,12 @@
 
 from __future__ import annotations
 
-import os
-
 import pytest
 
 import qmesh
 from qmesh.ai import draft, train_neural_decoder
 from qmesh.ai.intent import compile_intent
 from qmesh.ai.llm import MockProvider, auto_provider
-
 
 # ---------- intent compiler ----------
 
@@ -237,6 +234,7 @@ def test_grammar_mask_logit_bias_emits_token_dict_when_tokenizer_present():
     indirectly through the demo and the stub-adapter test."""
     pytest.importorskip("tiktoken")
     import math
+
     from qmesh.ai.constrained_decoding import QASMGrammarGate
     from qmesh.ai.grammar_mask import LogitBiasAdapter, compile_grammar_mask
 
@@ -334,7 +332,6 @@ def test_grammar_masked_provider_repairs_a_bad_line():
     """Drive the fallback path with a synthetic provider that emits an
     illegal first body line, then a clean repair on the retry. The wrapper
     must accept the repair and grow the kept-lines list past it."""
-    import math
     from qmesh.ai.constrained_decoding import QASMGrammarGate, validate_qasm
     from qmesh.ai.grammar_mask import GrammarMaskedProvider
     from qmesh.ai.llm import CompletionResult, LLMProvider

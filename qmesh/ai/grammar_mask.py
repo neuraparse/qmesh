@@ -37,13 +37,12 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from qmesh.ai.constrained_decoding import (
-    ConstrainedQASMGenerator,
-    QASMGrammarGate,
     _GATES_NO_PARAM,
     _GATES_PARAM,
+    ConstrainedQASMGenerator,
+    QASMGrammarGate,
 )
 from qmesh.ai.llm import CompletionResult, LLMProvider
-
 
 # --------------------------------------------------------------------------- #
 # StubAdapter                                                                 #

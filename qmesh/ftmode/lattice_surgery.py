@@ -29,13 +29,11 @@ distance ≥ d explicitly.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Sequence
 
 import stim
 
 from qmesh.ir.module import Module
 from qmesh.ir.ops import GateOp, MeasureOp
-
 
 # ---- public dataclass -------------------------------------------------------
 

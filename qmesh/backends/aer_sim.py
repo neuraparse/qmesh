@@ -25,7 +25,7 @@ def _ir_to_qiskit(module: Module):
     """Lower a qmesh Module to a Qiskit QuantumCircuit (gate modality only)."""
     from qiskit import QuantumCircuit
 
-    from qmesh.ir.ops import GateOp, MeasureOp, ResetOp, BarrierOp, DelayOp
+    from qmesh.ir.ops import BarrierOp, DelayOp, GateOp, MeasureOp, ResetOp
     from qmesh.ir.types import Bit, Qubit
 
     n_qubits = 0
@@ -79,9 +79,9 @@ def _heron_like_noise_model():
     """
     from qiskit_aer.noise import (
         NoiseModel,
+        ReadoutError,
         depolarizing_error,
         thermal_relaxation_error,
-        ReadoutError,
     )
 
     nm = NoiseModel()

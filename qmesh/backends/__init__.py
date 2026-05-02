@@ -6,9 +6,9 @@ backend a circuit can run on and how it should score.
 
 from __future__ import annotations
 
-from qmesh.backends.base import Backend, Capabilities, RunResult, ControlLevel
-from qmesh.backends.registry import register, all_backends, get
 from qmesh.backends import statevec_sim  # noqa: F401  (registers itself)
+from qmesh.backends.base import Backend, Capabilities, ControlLevel, RunResult
+from qmesh.backends.registry import all_backends, get, register
 
 # optional vendor backends — register when their package is importable
 try:

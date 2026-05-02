@@ -13,12 +13,12 @@ manifest — useful for plumbing tests and accuracy comparisons.
 from __future__ import annotations
 
 import time
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 
 import numpy as np
 
-from qmesh.ftmode.decoders.base import DecodeResult, Decoder
+from qmesh.ftmode.decoders.base import Decoder, DecodeResult
 
 
 @dataclass

@@ -28,6 +28,7 @@ def _ir_to_pulser(module: Module):
     """Lower a Rydberg-modality qmesh.ir Module to a Pulser Sequence."""
     from pulser import Pulse, Register, Sequence
     from pulser.devices import MockDevice
+
     from qmesh.ir.types import Atom
 
     # Build the register from atom positions

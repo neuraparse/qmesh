@@ -33,7 +33,6 @@ Operating modes:
 
 from __future__ import annotations
 
-import math
 import time
 from typing import Any
 
@@ -41,7 +40,6 @@ from qmesh.backends.base import Backend, Capabilities, ControlLevel, RunResult
 from qmesh.backends.registry import register
 from qmesh.ir.module import Module
 from qmesh.ir.types import Modality
-
 
 # Default pulse calibrations (ns durations, [0..1] amplitudes).
 _DEFAULT_PULSE_CALIBRATION: dict[str, dict[str, float]] = {

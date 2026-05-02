@@ -15,11 +15,11 @@ __email__ = "open-source@neuraparse.com"
 __license__ = "Apache-2.0"
 __url__ = "https://github.com/neuraparse/qmesh"
 
-from qmesh.ir import Module, Function, Region, Op, Modality, Qubit, Bit
-from qmesh.ir.builder import circuit
+from qmesh.api import diff, replay, submit
 from qmesh.backends.base import Backend, Capabilities, RunResult
+from qmesh.ir import Bit, Function, Modality, Module, Op, Qubit, Region
+from qmesh.ir.builder import circuit
 from qmesh.provenance.manifest import Manifest
-from qmesh.api import submit, replay, diff
 
 __all__ = [
     "__version__",

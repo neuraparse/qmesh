@@ -6,7 +6,6 @@ import pytest
 
 from qmesh.frontends.qasm3 import emit, parse
 
-
 BELL_QASM = """
 OPENQASM 3.0;
 include "stdgates.inc";
@@ -38,8 +37,8 @@ def test_qasm3_emit_contains_keywords():
 def test_cross_frontend_qiskit_cirq_semantic_equivalence():
     qiskit = pytest.importorskip("qiskit")
     cirq = pytest.importorskip("cirq")
-    from qmesh.frontends.qiskit import from_qiskit
     from qmesh.frontends.cirq import from_cirq
+    from qmesh.frontends.qiskit import from_qiskit
 
     qc = qiskit.QuantumCircuit(2, 2)
     qc.h(0); qc.cx(0, 1); qc.measure(0, 0); qc.measure(1, 1)
@@ -58,7 +57,7 @@ def test_cross_frontend_qiskit_cirq_semantic_equivalence():
 def test_pennylane_plugin_lowers_a_stub_tape():
     """Run the PennyLane plugin against a hand-rolled stub tape — no real
     PennyLane installed → from_pennylane_tape raises a clean RuntimeError."""
-    from qmesh.frontends.pennylane import from_pennylane_tape, _pl_available
+    from qmesh.frontends.pennylane import _pl_available, from_pennylane_tape
 
     if _pl_available():
         # If PennyLane is on the box, run a real Bell tape.
@@ -83,7 +82,7 @@ def test_qbraid_plugin_routes_through_qasm3():
     """qBraid plugin lowers to QASM 3 then through qmesh.frontends.qasm3.parse.
     Without qbraid installed → clean RuntimeError. With qbraid installed,
     we feed it an OpenQASM 3 string program (qBraid's identity transpile)."""
-    from qmesh.frontends.qbraid import from_qbraid, _qbraid_available
+    from qmesh.frontends.qbraid import _qbraid_available, from_qbraid
 
     if _qbraid_available():
         # Identity transpile: pass already-QASM3 source.

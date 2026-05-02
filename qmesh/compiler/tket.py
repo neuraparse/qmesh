@@ -23,15 +23,10 @@ def tket_pass(name: str, **kwargs: object):
     """Return a qmesh.compiler.Pass that applies the named pytket pass."""
     def run(module: Module, ctx: PassContext) -> Module:
         from pytket import passes as _tket_passes
-        from pytket.qasm import circuit_to_qasm_str, circuit_from_qasm_str
-
-        from qmesh.frontends.qasm3 import emit
-        # NOTE: pytket's qasm helpers actually consume QASM 2 string; we use
-        # qiskit as the bridge for portability.
-        from qiskit import QuantumCircuit
-        from qiskit.qasm2 import dumps, loads
         from pytket.extensions.qiskit import qiskit_to_tk, tk_to_qiskit
 
+        # NOTE: pytket's qasm helpers actually consume QASM 2 string; we use
+        # qiskit as the bridge for portability.
         from qmesh.backends.aer_sim import _ir_to_qiskit
         from qmesh.frontends.qiskit import from_qiskit
 

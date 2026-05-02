@@ -23,8 +23,6 @@ from qmesh.scheduler import (
     execute,
     resume,
 )
-from qmesh.scheduler.dag import _new_id
-
 
 # ---------- topology ----------
 
@@ -168,11 +166,9 @@ def test_cross_modality_dag_runs(tmp_path):
     pytest.importorskip("pulser")
     pytest.importorskip("strawberryfields")
 
-    from pulser import Pulse, Register, Sequence
-    from pulser.devices import MockDevice
     import strawberryfields as sf
     from strawberryfields import ops as sf_ops
-    from qmesh.frontends.pulser import from_pulser
+
     from qmesh.frontends.sf import from_sf
 
     dag = DAG()

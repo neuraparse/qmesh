@@ -24,7 +24,6 @@ from qmesh.ir.module import Module
 from qmesh.ir.ops import GateOp, MeasureOp, ResetOp
 from qmesh.ir.types import Bit, Modality, Qubit
 
-
 _CLIFFORD_GATES = {
     "h", "x", "y", "z", "s", "sdg",
     "cx", "cy", "cz", "swap", "iswap",

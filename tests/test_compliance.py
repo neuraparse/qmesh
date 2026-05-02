@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import os
 from pathlib import Path
 
 import pytest
@@ -12,9 +11,7 @@ import qmesh
 from qmesh.compliance import (
     Certificate,
     ComplianceVerification,
-    TrustResult,
     TrustStore,
-    attach_cert_chain_to_manifest,
     build_pack,
     generate_root_keypair,
     issue_certificate,
@@ -27,7 +24,6 @@ from qmesh.metriq import (
     export_run_dir,
     submit_to_metriq,
 )
-
 
 # --------------------------------------------------------------------------- #
 # Helpers                                                                     #
