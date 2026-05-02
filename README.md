@@ -1,20 +1,39 @@
 <div align="center">
 
-<img src="https://neuraparse.com/logo.svg" alt="Neura Parse" height="48" />
+<a href="https://neuraparse.com">
+  <img src="https://avatars.githubusercontent.com/u/174260626?s=160&v=4" alt="Neura Parse" width="96" height="96" style="border-radius:24px;" />
+</a>
 
 # qmesh
 
-### The quantum substrate of the Neura Parse stack.
+**The quantum substrate of the Neura Parse stack.**
 
-**One IR. Every modality. Provenance by default. Fault-tolerant ready.**
+*One IR. Every modality. Provenance by default. Fault-tolerant ready.*
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-0A0A0A?style=flat-square)](./LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.11%2B-0A0A0A?style=flat-square)](https://www.python.org/downloads/)
-[![Tests](https://img.shields.io/badge/Tests-157%20passing-22C55E?style=flat-square)](./tests)
-[![Status](https://img.shields.io/badge/Status-Phase%201–6%20shipped-3B82F6?style=flat-square)](./PLAN.md)
-[![Site](https://img.shields.io/badge/neuraparse.com-0A0A0A?style=flat-square)](https://neuraparse.com)
+<br/>
 
-[**Website**](https://neuraparse.com) · [**Docs**](./docs) · [**Roadmap**](./PLAN.md) · [**Architecture**](./ARCHITECTURE.md) · [**Examples**](./examples)
+<p>
+  <a href="./LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-0A0A0A?style=for-the-badge&logo=apache&logoColor=white"></a>
+  <a href="https://www.python.org/downloads/"><img alt="Python" src="https://img.shields.io/badge/Python-3.11%2B-0A0A0A?style=for-the-badge&logo=python&logoColor=white"></a>
+  <a href="./tests"><img alt="Tests" src="https://img.shields.io/badge/Tests-157%20passing-22C55E?style=for-the-badge&logo=pytest&logoColor=white"></a>
+  <a href="./PLAN.md"><img alt="Phases" src="https://img.shields.io/badge/Phases%201--6-shipped-0EA5E9?style=for-the-badge"></a>
+</p>
+
+<p>
+  <a href="https://github.com/neuraparse/qmesh/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/neuraparse/qmesh?style=flat-square&color=06B6D4&logo=github&logoColor=white"></a>
+  <a href="https://github.com/neuraparse/qmesh/commits/main"><img alt="Last commit" src="https://img.shields.io/github/last-commit/neuraparse/qmesh?style=flat-square&color=06B6D4&logo=git&logoColor=white"></a>
+  <a href="https://github.com/neuraparse/qmesh/issues"><img alt="Issues" src="https://img.shields.io/github/issues/neuraparse/qmesh?style=flat-square&color=0EA5E9&logo=github&logoColor=white"></a>
+  <a href="https://neuraparse.com"><img alt="Website" src="https://img.shields.io/badge/neuraparse.com-0EA5E9?style=flat-square&logo=googlechrome&logoColor=white"></a>
+  <a href="https://github.com/neuraparse"><img alt="Org" src="https://img.shields.io/badge/github-%2Fneuraparse-0A0A0A?style=flat-square&logo=github&logoColor=white"></a>
+</p>
+
+<p>
+  <a href="https://neuraparse.com"><b>Website</b></a> ·
+  <a href="./docs"><b>Docs</b></a> ·
+  <a href="./PLAN.md"><b>Roadmap</b></a> ·
+  <a href="./ARCHITECTURE.md"><b>Architecture</b></a> ·
+  <a href="./examples"><b>Examples</b></a>
+</p>
 
 </div>
 
@@ -168,15 +187,30 @@ qmesh is the quantum layer for the same five sectors Neura Parse builds for:
 
 qmesh is not a Qiskit or PennyLane killer. It's the layer above them.
 
+<p align="center">
+  <img alt="Qiskit"     src="https://img.shields.io/badge/Qiskit-6929C4?style=for-the-badge&logo=qiskit&logoColor=white">
+  <img alt="Cirq"       src="https://img.shields.io/badge/Cirq-1A73E8?style=for-the-badge&logo=google&logoColor=white">
+  <img alt="PennyLane"  src="https://img.shields.io/badge/PennyLane-26B5BC?style=for-the-badge&logo=pennylane&logoColor=white">
+  <img alt="qBraid"     src="https://img.shields.io/badge/qBraid-7C3AED?style=for-the-badge">
+  <img alt="OpenQASM 3" src="https://img.shields.io/badge/OpenQASM%203-0A0A0A?style=for-the-badge">
+  <img alt="Stim"       src="https://img.shields.io/badge/Stim-1F2937?style=for-the-badge">
+  <img alt="PyMatching" src="https://img.shields.io/badge/PyMatching-22C55E?style=for-the-badge">
+  <img alt="Mitiq"      src="https://img.shields.io/badge/Mitiq-F59E0B?style=for-the-badge">
+  <img alt="Pulser"     src="https://img.shields.io/badge/Pulser-DC2626?style=for-the-badge">
+  <img alt="Strawberry Fields" src="https://img.shields.io/badge/Strawberry%20Fields-EC4899?style=for-the-badge">
+  <img alt="TKET"       src="https://img.shields.io/badge/TKET-0EA5E9?style=for-the-badge">
+  <img alt="Metriq"     src="https://img.shields.io/badge/Metriq-06B6D4?style=for-the-badge">
+</p>
+
 | Layer | qmesh uses |
 |---|---|
-| Frontends | Qiskit · Cirq · OpenQASM 3 · Pulser · Strawberry Fields · MrMustard · Bloqade · **PennyLane** · **qBraid** |
-| Compilation | TKET · BQSKit · MQT |
-| Mitigation | Mitiq (ZNE) |
-| Simulators | Aer · Stim · QutipEmulator · Strawberry Fields |
-| Decoders | PyMatching · BP+OSD (ldpc) · custom neural / transformer |
-| LLMs | Ollama · Anthropic · OpenAI · Mock fallback |
-| Reporting | Metriq |
+| **Frontends** | Qiskit · Cirq · OpenQASM 3 · Pulser · Strawberry Fields · MrMustard · Bloqade · **PennyLane** · **qBraid** |
+| **Compilation** | TKET · BQSKit · MQT |
+| **Mitigation** | Mitiq (ZNE) |
+| **Simulators** | Aer · Stim · QutipEmulator · Strawberry Fields |
+| **Decoders** | PyMatching · BP+OSD (ldpc) · custom neural / transformer |
+| **LLMs** | Ollama · Anthropic · OpenAI · Mock fallback |
+| **Reporting** | Metriq |
 
 The same teams that ship those projects win when qmesh wins. That is the design intent.
 
